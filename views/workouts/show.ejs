@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+
+<ul>
+    <li>Date: <%= workout.date.toLocaleDateString('en-UK') %></li>
+    <li>Movement: <%= workout.movement %> </li>
+    <li>Sets: <%= workout.sets %> </li>
+    <li>Reps: <%= workout.reps %> </li>
+    <li>Weight: <%= workout.weight %> </li>
+    <li>Notes: <%= workout.notes %> </li>
+    
+    
+</ul>
+
+<%- include('../partials/footer') %>
