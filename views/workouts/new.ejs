@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+
+<body>
+    <h1><%= title %></h1>
+    <form action="/workouts" method="POST">
+    <label>Date:</label>
+    <input type="date" name="date">
+    <label>Movement:</label>
+    <input type="text" name="movement">
+    <label>Sets:</label>
+    <input type="number" name="sets">
+    <label>Reps:</label>
+    <input type="number" name="reps">
+    <label>Weight:</label>
+    <input type="number" name="weight">
+    <label>Notes:</label>
+    <input type="text" name="notes">
+    <input type="submit" value="Add Workout">
+    </form>
+</body>
+
+
+<%- include('../partials/footer') %>

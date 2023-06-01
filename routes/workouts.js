@@ -6,7 +6,9 @@ router.get('/', workoutsCtrl.index)
   
 router.get('/:id', workoutsCtrl.show)
 
+router.get('/new', workoutsCtrl.new)
 
+router.post('/', workoutsCtrl.create)
 
 
 
