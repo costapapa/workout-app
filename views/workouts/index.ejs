@@ -4,7 +4,7 @@
     <h1><%= title %></h1>
  <ul>
     <% workouts.forEach(function(workout){ %>
-      <li><a href="/workouts/<%= workout._id %>"><%= workout.date.toLocaleDateString('en-UK') %>(<%= workout.movement %>)</a></li>
+      <li><a href="/workouts/<%= workout._id %>"><%= workout.date.toLocaleDateString('en-UK') %>  <%= workout.title %></a></li>
     <%}) %>
  </ul>
 </body>

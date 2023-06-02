@@ -1,14 +1,54 @@
 <%- include('../partials/header') %>
-
 <ul>
+
+
+
     <li>Date: <%= workout.date.toLocaleDateString('en-UK') %></li>
-    <li>Movement: <%= workout.movement %> </li>
-    <li>Sets: <%= workout.sets %> </li>
-    <li>Reps: <%= workout.reps %> </li>
-    <li>Weight: <%= workout.weight %> </li>
-    <li>Notes: <%= workout.notes %> </li>
+    <li>Name: <%= workout.title %></li>
+   
+  
+  
+    <form action="/workouts/<%= workout._id%>/workoutInfo" method="POST">
+   
+    <label>Movement:</label>
+    <input type="text" name="movement">
+    <label>Sets:</label>
+    <input type="number" name="sets">
+    <label>Reps:</label>
+    <input type="number" name="reps">
+    <label>Weight:</label>
+    <input type="number" name="weight">
+    <label>Notes:</label>
+    <input type="text" name="notes">
+    <input type="submit" value="Add Workout">
+    </form>
+
     
-    
-</ul>
+</ul> 
+<% if(workout.workoutInfo.length){ %>
+    <table>
+      <thead>
+        <tr>
+          <th>Movement</th>
+          <th>Sets</th>
+          <th>Reps</th>
+          <th>Weight</th>
+          <th>Notes</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <% workout.workoutInfo.forEach(function(w) { %>
+          <tr>
+            <td><%= w.movement %></td>
+            <td><%= w.sets %></td>
+            <td><%= w.reps %></td>
+            <td><%= w.weight %></td>
+            <td><%= w.notes %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } %>
 
 <%- include('../partials/footer') %>

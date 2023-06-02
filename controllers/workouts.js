@@ -33,6 +33,7 @@ async function create(req, res, next) {
     try {
     const body = req.body
     const createdWorkout = await Workout.create(body)
+    
     console.log(body)
     res.redirect(`/workouts/${createdWorkout._id}`)
     } catch (err) {
@@ -40,6 +41,8 @@ async function create(req, res, next) {
     res.render('workouts/new')
     }
 }
+
+
 
 module.exports = {
     index,
