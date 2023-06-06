@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+
+<body>
+    <h1><%= title %></h1>
+    <form class="workout-add" action="/workouts/<%= workout._id %>?_method=PUT" method="POST">
+        <label>Title:</label>
+        <input type="text" name="title" value="<%= workout.title %>">
+        <label>Date:</label>
+        <input type="date" name="date" value="">
+        <input class="workout-add-btn" type="submit" value="Update Workout">
+    </form>
+  
+</body>
+
+
+<%- include('../partials/footer') %>

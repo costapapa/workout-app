@@ -14,8 +14,10 @@ const sessionSchema = new Schema( {
 const workoutSchema = new Schema( {
     title: String,
     date:  Date,
-    workoutInfo: [sessionSchema]
+    workoutInfo: [sessionSchema],
+    workoutOwnerId: { type: Schema.Types.ObjectId }
 });
+
 
 
 

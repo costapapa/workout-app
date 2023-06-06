@@ -18,6 +18,22 @@ async function create(req, res){
 }
 
 
+async function deleteWorkout(req, res) {
+  try {
+    const { id } = req.params
+    const { workoutInfoID } = req.body
+    const workout = await Workout.findById(id)
+    workout.workoutInfo.id(workoutInfoID).deleteOne()
+    await workout.save()
+
+    res.redirect(`/workouts/${workout._id}`)
+  } catch (err) {
+    console.log('ERR Msg', (err))
+  }
+}
+
+
+
 
 
 
@@ -26,5 +42,6 @@ async function create(req, res){
 
 
 module.exports = {
-    create
+    create,
+    deleteWorkout
 }

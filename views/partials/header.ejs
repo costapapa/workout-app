@@ -4,21 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Play&family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script defer src="/javascripts/modal.js"></script>
   <title><%= title %></title>
 </head>
 <body>
-  <nav>
-    <a href="/">HOME</a>
-    |
-    <a href="/workouts">Workouts</a>
-    |
-    <a href="/workouts/new">Add Workout</a>
-    |
+  <nav class="headernav">
+    <button class="navbuttons" onclick="window.location.href='/'">HOME</button>
+   
     <% if (user) { %>
-      <a href="/logout">LOG OUT</a>
+      <button class="navbuttons" onclick="window.location.href='/workouts'">Workouts</button>
+    <button class="navbuttons" onclick="window.location.href='/workouts/new'">Add Workout</button>
+      <button class="navbuttons" onclick="window.location.href='/logout'">LOG OUT</button>
     <% } else { %>
-      <a href="/auth/google">LOG IN&nbsp;></a>
+      <button class="navbuttons" onclick="window.location.href='/auth/google'">LOG IN</button>
     <% } %> 
     
   </nav>

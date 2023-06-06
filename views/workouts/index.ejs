@@ -1,12 +1,30 @@
 <%- include('../partials/header') %>
 
 <body>
-    <h1><%= title %></h1>
- <ul>
-    <% workouts.forEach(function(workout){ %>
-      <li><a href="/workouts/<%= workout._id %>"><%= workout.date.toLocaleDateString('en-UK') %>  <%= workout.title %></a></li>
-    <%}) %>
- </ul>
+<h1><%= title %></h1>
+<div class="workoutlog-idx">
+  <ul>
+    <% workouts.forEach(function(workout) { %>
+    <div class="workout-container">
+      <a href="/workouts/<%= workout._id %>">
+        <% if (workout.date) { %>
+        <%= workout.date.toLocaleDateString('en-GB') %>
+        <% } %>
+        <%= workout.title %>
+      </a>
+      <% if (user?._id.equals(workout.workoutOwnerId)) { %>
+      <form action="/workouts/<%= workout._id %>?_method=DELETE" method="POST" class="delete-form">
+        <button class="delete-workout" type="submit">🗑️</button>
+      </form>
+      <div class="edit-ref">
+        <a href="workouts/<%= workout._id %>/edit">Edit</a>
+      </div>
+      <% } %>
+    </div>
+    <% }) %>
+  </ul>
+</div>
 </body>
+
 
 <%- include('../partials/footer') %>

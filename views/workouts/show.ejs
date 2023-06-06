@@ -3,12 +3,12 @@
 
 
 
-    <li>Date: <%= workout.date.toLocaleDateString('en-UK') %></li>
-    <li>Name: <%= workout.title %></li>
+    <h2 class="id-Title">Date: <%= workout.date.toLocaleDateString('en-UK') %></h2>
+    <h3 class="id-Title">Name: <%= workout.title %></h3>
    
   
   
-    <form action="/workouts/<%= workout._id%>/workoutInfo" method="POST">
+    <form class="workoutinfo-add" action="/workouts/<%= workout._id%>/workoutInfo" method="POST">
    
     <label>Movement:</label>
     <input type="text" name="movement">
@@ -20,12 +20,13 @@
     <input type="number" name="weight">
     <label>Notes:</label>
     <input type="text" name="notes">
-    <input type="submit" value="Add Workout">
+    <input type="submit" value="Add Movement" class="btn-add-workout">
     </form>
 
     
 </ul> 
 <% if(workout.workoutInfo.length){ %>
+    <div class="movement-table">
     <table>
       <thead>
         <tr>
@@ -34,21 +35,34 @@
           <th>Reps</th>
           <th>Weight</th>
           <th>Notes</th>
-
         </tr>
       </thead>
       <tbody>
         <% workout.workoutInfo.forEach(function(w) { %>
-          <tr>
+            <div class="workountInfo-table">
+            <tr>
             <td><%= w.movement %></td>
             <td><%= w.sets %></td>
             <td><%= w.reps %></td>
             <td><%= w.weight %></td>
             <td><%= w.notes %></td>
+            <td>
+                <form
+            action="/workouts/<%= workout._id %>/workoutInfo/<%=w._id %> ?_method=DELETE"
+            method="POST"
+            class="delete-form"
+              >
+              <button class="x-movement" type="submit">🗑️</button>
+              <input type="hidden" name="workoutInfoID" value="<%= w._id %>" />
+            </form>
+            </td>
           </tr>
+          </div>
+        
         <% }) %>
       </tbody>
     </table>
+    </div>
   <% } %>
 
 <%- include('../partials/footer') %>
