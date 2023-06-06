@@ -220,7 +220,7 @@ td {
 }
 
 .footer-div {
-  margin-top: 400px;
+  margin-top: 300px;
 }
 
 .modal {
@@ -279,7 +279,17 @@ td {
   display: flex;
   justify-content: center;
   margin: auto;
+  margin-top: 10%;
   width: 200px;
+  height: auto;
+}
+
+.image-ftr {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-top: 10%;
+  width: 50px;
   height: auto;
 }
 
